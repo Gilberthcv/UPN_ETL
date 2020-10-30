@@ -1,0 +1,1846 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/19/2020 7:33:09 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GEG"
+  DTS:CreatorName="UPNORTE\geg"
+  DTS:DTSID="{69B80724-E1AE-4FDD-BBCF-55BC0A958536}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{D9621FE0-1AEC-40E7-9F49-112B798B0BFB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[GEG\MSSQLSERVER01.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{42F3A763-401A-45D8-B624-9BEDAE812671}"
+      DTS:ObjectName="GEG\MSSQLSERVER01.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=GEG\MSSQLSERVER01;User ID=sa;Initial Catalog=BDTest;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAD3cEYJP4T0yKoWJLMt5RXAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABkAlkuT0wwyfr15eyEz7cgAAAAAASAAACgAAAAEAAAANmyN7px5lArKe0PUi99kicYAAAA3dNOi3LXXfVv0CfCtKus2vGmfEUFGPi5FAAAAGGk8tS5j7Zij+o4136c1N9y+pLM</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Snowflake PROD.U310600100]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{03B6E823-10B0-406B-8B96-67BF71AF33FF}"
+      DTS:ObjectName="Snowflake PROD.U310600100">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=U310600100;Dsn=Snowflake PROD;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAD3cEYJP4T0yKoWJLMt5RXAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA2LnAMpGr5APPHa09DUp9uAAAAAASAAACgAAAAEAAAAIRMrcdicnE0SD2sNaDuaE4YAAAAq66iT/W3IllmSMedOHH0p9jSeluqW3R1FAAAAHu1ygLDGiMDhjYt84QaE14dS1+T</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{0C5471A4-E3A0-4E4D-86A8-9E3601A4623D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[SIU_Ingresantes]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[GEG\MSSQLSERVER01.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[GEG\MSSQLSERVER01.sa]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[PERSON_UID]"
+                      cachedDataType="r8"
+                      cachedName="PERSON_UID"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PERSON_UID]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PERSON_UID]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="252"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[STUDENT_LEVEL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="252"
+                      cachedName="STUDENT_LEVEL"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[STUDENT_LEVEL]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[STUDENT_LEVEL]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[PROGRAMA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="303"
+                      cachedName="PROGRAMA"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PROGRAMA]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PROGRAMA]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DOCUMENTO_IDENTIDAD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DOCUMENTO_IDENTIDAD"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DOCUMENTO_IDENTIDAD]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[DOCUMENTO_IDENTIDAD]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TIPO_ESTUDIANTE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="252"
+                      cachedName="TIPO_ESTUDIANTE"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_ESTUDIANTE]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_ESTUDIANTE]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TIPO_INGRESANTE]"
+                      cachedDataType="numeric"
+                      cachedName="TIPO_INGRESANTE"
+                      cachedPrecision="1"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_INGRESANTE]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_INGRESANTE]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CODIGO_SEDE_FILIAL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="CODIGO_SEDE_FILIAL"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO_SEDE_FILIAL]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CODIGO_SEDE_FILIAL]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TIPO_PROCESO]"
+                      cachedDataType="numeric"
+                      cachedName="TIPO_PROCESO"
+                      cachedPrecision="1"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_PROCESO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_PROCESO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[PROCESO_ADMISION_PERIODO_INGRESO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="120"
+                      cachedName="PROCESO_ADMISION_PERIODO_INGRESO"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PROCESO_ADMISION_PERIODO_INGRESO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PROCESO_ADMISION_PERIODO_INGRESO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TIPO_DOCUMENTO]"
+                      cachedDataType="numeric"
+                      cachedName="TIPO_DOCUMENTO"
+                      cachedPrecision="1"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_DOCUMENTO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_DOCUMENTO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[NRO_DOCUMENTO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="NRO_DOCUMENTO"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NRO_DOCUMENTO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[NRO_DOCUMENTO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[NOMBRES]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="NOMBRES"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NOMBRES]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[NOMBRES]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[PRIMER_APELLIDO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="PRIMER_APELLIDO"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PRIMER_APELLIDO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PRIMER_APELLIDO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[SEGUNDO_APELLIDO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SEGUNDO_APELLIDO"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SEGUNDO_APELLIDO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SEGUNDO_APELLIDO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[SOLO_UN_APELLIDO]"
+                      cachedDataType="numeric"
+                      cachedName="SOLO_UN_APELLIDO"
+                      cachedPrecision="1"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SOLO_UN_APELLIDO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SOLO_UN_APELLIDO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[SEXO]"
+                      cachedDataType="numeric"
+                      cachedName="SEXO"
+                      cachedPrecision="1"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SEXO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SEXO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FECHA_NACIMIENTO]"
+                      cachedDataType="dbDate"
+                      cachedName="FECHA_NACIMIENTO"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FECHA_NACIMIENTO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FECHA_NACIMIENTO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[PAIS_NACIMIENTO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="PAIS_NACIMIENTO"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PAIS_NACIMIENTO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PAIS_NACIMIENTO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[NACIONALIDAD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="NACIONALIDAD"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NACIONALIDAD]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[NACIONALIDAD]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[UBIGEO_NACIMIENTO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="UBIGEO_NACIMIENTO"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[UBIGEO_NACIMIENTO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[UBIGEO_NACIMIENTO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[UBIGEO_DOMICILIO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="UBIGEO_DOMICILIO"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[UBIGEO_DOMICILIO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[UBIGEO_DOMICILIO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[LENGUA_NATIVA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="LENGUA_NATIVA"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[LENGUA_NATIVA]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[LENGUA_NATIVA]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IDIOMA_EXTRANJERO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="IDIOMA_EXTRANJERO"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDIOMA_EXTRANJERO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[IDIOMA_EXTRANJERO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CONDICION_DISCAPACIDAD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CONDICION_DISCAPACIDAD"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CONDICION_DISCAPACIDAD]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CONDICION_DISCAPACIDAD]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CODIGO_FACULTAD_UNIDAD]"
+                      cachedDataType="numeric"
+                      cachedName="CODIGO_FACULTAD_UNIDAD"
+                      cachedPrecision="2"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO_FACULTAD_UNIDAD]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CODIGO_FACULTAD_UNIDAD]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CODIGO_PROGRAMA]"
+                      cachedDataType="numeric"
+                      cachedName="CODIGO_PROGRAMA"
+                      cachedPrecision="6"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO_PROGRAMA]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CODIGO_PROGRAMA]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FECHA_INGRESO]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="FECHA_INGRESO"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FECHA_INGRESO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FECHA_INGRESO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[MODALIDAD_INGRESO]"
+                      cachedDataType="numeric"
+                      cachedName="MODALIDAD_INGRESO"
+                      cachedPrecision="2"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[MODALIDAD_INGRESO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MODALIDAD_INGRESO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[OTRA_MODALIDAD_INGRESO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="OTRA_MODALIDAD_INGRESO"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[OTRA_MODALIDAD_INGRESO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[OTRA_MODALIDAD_INGRESO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[MODALIDAD_ESTUDIO]"
+                      cachedDataType="numeric"
+                      cachedName="MODALIDAD_ESTUDIO"
+                      cachedPrecision="1"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[MODALIDAD_ESTUDIO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MODALIDAD_ESTUDIO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CODIGO_ORCID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CODIGO_ORCID"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO_ORCID]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CODIGO_ORCID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PERSON_UID]"
+                      dataType="r8"
+                      name="PERSON_UID" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="252"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[STUDENT_LEVEL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="252"
+                      name="STUDENT_LEVEL" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PROGRAMA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="303"
+                      name="PROGRAMA" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DOCUMENTO_IDENTIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DOCUMENTO_IDENTIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_ESTUDIANTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="252"
+                      name="TIPO_ESTUDIANTE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_INGRESANTE]"
+                      dataType="numeric"
+                      name="TIPO_INGRESANTE"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO_SEDE_FILIAL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="CODIGO_SEDE_FILIAL" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_PROCESO]"
+                      dataType="numeric"
+                      name="TIPO_PROCESO"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PROCESO_ADMISION_PERIODO_INGRESO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="PROCESO_ADMISION_PERIODO_INGRESO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_DOCUMENTO]"
+                      dataType="numeric"
+                      name="TIPO_DOCUMENTO"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NRO_DOCUMENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="NRO_DOCUMENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NOMBRES]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="NOMBRES" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PRIMER_APELLIDO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="PRIMER_APELLIDO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SEGUNDO_APELLIDO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SEGUNDO_APELLIDO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SOLO_UN_APELLIDO]"
+                      dataType="numeric"
+                      name="SOLO_UN_APELLIDO"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SEXO]"
+                      dataType="numeric"
+                      name="SEXO"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FECHA_NACIMIENTO]"
+                      dataType="dbDate"
+                      name="FECHA_NACIMIENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PAIS_NACIMIENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="PAIS_NACIMIENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NACIONALIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="NACIONALIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[UBIGEO_NACIMIENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="UBIGEO_NACIMIENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[UBIGEO_DOMICILIO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="UBIGEO_DOMICILIO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[LENGUA_NATIVA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="LENGUA_NATIVA" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDIOMA_EXTRANJERO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="IDIOMA_EXTRANJERO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CONDICION_DISCAPACIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CONDICION_DISCAPACIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO_FACULTAD_UNIDAD]"
+                      dataType="numeric"
+                      name="CODIGO_FACULTAD_UNIDAD"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO_PROGRAMA]"
+                      dataType="numeric"
+                      name="CODIGO_PROGRAMA"
+                      precision="6" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FECHA_INGRESO]"
+                      dataType="dbTimeStamp2"
+                      name="FECHA_INGRESO"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[MODALIDAD_INGRESO]"
+                      dataType="numeric"
+                      name="MODALIDAD_INGRESO"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[OTRA_MODALIDAD_INGRESO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="OTRA_MODALIDAD_INGRESO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[MODALIDAD_ESTUDIO]"
+                      dataType="numeric"
+                      name="MODALIDAD_ESTUDIO"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO_ORCID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CODIGO_ORCID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Origen ODBC"
+              componentClassID="Microsoft.SSISODBCSrc"
+              contactInfo="Origen ODBC;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen ODBC"
+              name="Origen ODBC"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla que debe recuperarse."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">--SIU_Ingresantes
+/*TIPO_INGRESANTE, CODIGO_SEDE_FILIAL, TIPO_PROCESO, PROCESO_ADMISION_PERIODO_INGRESO, TIPO_DOCUMENTO, NRO_DOCUMENTO
+	, NOMBRES, PRIMER_APELLIDO, SEGUNDO_APELLIDO, SOLO_UN_APELLIDO, SEXO, FECHA_NACIMIENTO, PAIS_NACIMIENTO, NACIONALIDAD
+	, UBIGEO_NACIMIENTO, UBIGEO_DOMICILIO, LENGUA_NATIVA, IDIOMA_EXTRANJERO, CONDICION_DISCAPACIDAD, CODIGO_FACULTAD_UNIDAD
+	, CODIGO_PROGRAMA, FECHA_INGRESO, MODALIDAD_INGRESO, OTRA_MODALIDAD_INGRESO, MODALIDAD_ESTUDIO, CODIGO_ORCID
+*/
+WITH DOCUMENTO_IDENTIDAD AS (
+	SELECT ENTITY_UID, MAX(CASE WHEN ATERNATIVE_ID_TYPE = 'DNI' THEN ALTERNATIVE_ID END) AS DNI
+		, MAX(CASE WHEN ATERNATIVE_ID_TYPE = 'PASS' THEN ALTERNATIVE_ID END) AS PASS
+		, MAX(CASE WHEN ATERNATIVE_ID_TYPE = 'CNEX' THEN ALTERNATIVE_ID END) AS CNEX
+	FROM ODSMGR.ALTERNATIVE_ID I
+	WHERE ATERNATIVE_ID_TYPE IN ('DNI','PASS','CNEX')
+		AND ALTERNATIVE_ID_ACTIVITY_DATE = (SELECT MAX(I1.ALTERNATIVE_ID_ACTIVITY_DATE) FROM ODSMGR.ALTERNATIVE_ID I1
+												WHERE I1.ENTITY_UID = I.ENTITY_UID AND I1.ATERNATIVE_ID_TYPE IN ('DNI','PASS','CNEX'))
+	GROUP BY ENTITY_UID
+)
+, MAESTRIA_MOINTL AS (
+	SELECT STUD.SOVLCUR_PIDM, SOVLCUR_LEVL_CODE, REGLA.MAESTRIA
+	FROM ( SELECT DISTINCT SOVLCUR_PIDM, SOVLCUR_LEVL_CODE, SOVLCUR_PROGRAM
+			FROM ODSMGR.LOE_SOVLCUR 
+			WHERE SOVLCUR_LMOD_CODE = 'LEARNER' AND SOVLCUR_CACT_CODE = 'ACTIVE'
+				AND SOVLCUR_LEVL_CODE = 'EC'/* AND SOVLCUR_CURRENT_IND = 'N'*/ ) STUD
+		, ( SELECT N.MAESTRIA, N.TERM_CODE_EFF, SUBSTR(O.AREA,1,6) AS DIPLOMADO
+			FROM ( SELECT PROGRAM AS MAESTRIA, TERM_CODE_EFF
+					FROM ODSMGR.LOE_PROGRAM_AREA_PRIORITY M
+					WHERE PROGRAM &lt;&gt; SUBSTR(AREA,1,6) AND SUBSTR(PROGRAM,1,5) &lt;&gt; 'ING-C'
+						AND M.TERM_CODE_EFF = (SELECT MAX(M1.TERM_CODE_EFF) FROM ODSMGR.LOE_PROGRAM_AREA_PRIORITY M1
+												WHERE M1.PROGRAM = M.PROGRAM)
+					GROUP BY PROGRAM, TERM_CODE_EFF
+					HAVING COUNT(SUBSTR(AREA,1,6)) = 2 ) N
+				, ODSMGR.LOE_PROGRAM_AREA_PRIORITY O
+			WHERE N.MAESTRIA = O.PROGRAM AND N.TERM_CODE_EFF = O.TERM_CODE_EFF AND N.MAESTRIA &lt;&gt; SUBSTR(O.AREA,1,6) ) REGLA
+	WHERE STUD.SOVLCUR_PROGRAM = REGLA.DIPLOMADO
+	GROUP BY STUD.SOVLCUR_PIDM, SOVLCUR_LEVL_CODE, REGLA.MAESTRIA
+	HAVING COUNT(STUD.SOVLCUR_PROGRAM) = 2
+)
+SELECT DISTINCT A.PERSON_UID, A.ID, A.STUDENT_LEVEL, CASE WHEN M.MAESTRIA IS NOT NULL THEN A.PROGRAM ||' - '|| M.MAESTRIA ELSE A.PROGRAM END AS PROGRAMA
+	, CAST(CASE
+		WHEN L.DNI IS NOT NULL THEN 'DNI - ' || L.DNI
+		WHEN L.PASS IS NOT NULL THEN 'PASS - ' || L.PASS
+		WHEN L.CNEX IS NOT NULL THEN 'CNEX - ' || L.CNEX
+		ELSE NULL END AS VARCHAR(50)) AS DOCUMENTO_IDENTIDAD
+	, CASE A.STUDENT_POPULATION
+		WHEN 'N' THEN 
+			CASE 
+				WHEN A.STUDENT_LEVEL = 'UG' AND C.COHORT = 'NEW_REING' THEN 'Nuevo Reingreso'
+				WHEN A.STUDENT_LEVEL = 'UG' AND C.COHORT = 'REINGRESO' THEN 'Reingreso'
+				WHEN A.ADMISSIONS_POPULATION = 'II' THEN 'Intercambio IN'
+				ELSE 'Nuevo' END
+		WHEN 'C' THEN 
+			CASE 
+				WHEN A.STUDENT_LEVEL = 'UG' AND C.COHORT = 'NEW_REING' THEN 'Nuevo Reingreso'
+				WHEN A.STUDENT_LEVEL = 'UG' AND C.COHORT = 'REINGRESO' THEN 'Reingreso'
+				WHEN A.ADMISSIONS_POPULATION = 'II' THEN 'Intercambio IN'
+				WHEN A.ADMISSIONS_POPULATION &lt;&gt; 'RE' AND D.STUDENT_ATTRIBUTE = 'TINT' THEN 'Intercambio OUT'
+				WHEN E.ACTIVITY = 'DTO' AND D.STUDENT_ATTRIBUTE = 'TINT' THEN 'Doble Titulacion OUT'
+				WHEN E.ACTIVITY = 'ITO' AND D.STUDENT_ATTRIBUTE = 'TINT' THEN 'Intercambio OUT'
+				ELSE 'Continuo' END
+		ELSE A.STUDENT_POPULATION END AS TIPO_ESTUDIANTE, 
+	CASE
+		WHEN A.STUDENT_LEVEL = 'UG'
+			THEN ( CASE
+					WHEN A.ADMISSIONS_POPULATION = 'II'
+						OR (A.ADMISSIONS_POPULATION &lt;&gt; 'RE' AND D.STUDENT_ATTRIBUTE = 'TINT')
+						OR (E.ACTIVITY = 'DTO' AND D.STUDENT_ATTRIBUTE = 'TINT')
+						OR (E.ACTIVITY = 'ITO' AND D.STUDENT_ATTRIBUTE = 'TINT') THEN 3
+					WHEN SUBSTR(G.STVTERM_DESC,1,6) = SUBSTR(J.STVTERM_DESC,1,6) THEN 1
+					ELSE 2 END )
+		WHEN A.STUDENT_LEVEL IN ('EC','MA')
+			THEN ( CASE WHEN SUBSTR(J.STVTERM_DESC,1,6) = '2020-1' THEN 1 ELSE 2 END )
+		END AS TIPO_INGRESANTE
+	, CAST(CASE A.CAMPUS
+		WHEN 'CAJ' THEN 'F01'
+		WHEN 'LC0' THEN 'F02'
+		WHEN 'LE0' THEN 'F02'
+		WHEN 'LN0' THEN 'F02'
+		WHEN 'LN1' THEN 'F02'
+		WHEN 'LS0' THEN 'F02'
+		WHEN 'TML' THEN 'S'
+		WHEN 'TSI' THEN 'S'
+		ELSE NULL END AS VARCHAR(20)) AS CODIGO_SEDE_FILIAL
+	, CASE
+		WHEN (A.STUDENT_LEVEL = 'UG' AND SUBSTR(G.STVTERM_DESC,1,6) = SUBSTR(J.STVTERM_DESC,1,6))
+				OR (A.STUDENT_LEVEL IN ('EC','MA') AND SUBSTR(J.STVTERM_DESC,1,6) = '2020-1')
+		THEN 1 END AS TIPO_PROCESO
+	, SUBSTR(J.STVTERM_DESC,1,6) AS PROCESO_ADMISION_PERIODO_INGRESO
+	, CASE
+		WHEN L.DNI IS NOT NULL AND LENGTH(L.DNI) &lt; 9 THEN 1
+		WHEN L.PASS IS NOT NULL AND LENGTH(L.PASS) &lt; 19 THEN 2
+		WHEN L.CNEX IS NOT NULL AND LENGTH(L.CNEX) &lt; 19 THEN 3
+		ELSE NULL END AS TIPO_DOCUMENTO
+	, CAST(CASE
+		WHEN L.DNI IS NOT NULL AND LENGTH(L.DNI) &lt; 9 THEN L.DNI
+		WHEN L.PASS IS NOT NULL AND LENGTH(L.PASS) &lt; 19 THEN L.PASS
+		WHEN L.CNEX IS NOT NULL AND LENGTH(L.CNEX) &lt; 19 THEN L.CNEX
+		ELSE NULL END AS VARCHAR(20)) AS NRO_DOCUMENTO
+	, CAST(SPRIDEN_FIRST_NAME AS VARCHAR(100)) AS NOMBRES
+	, CAST(CASE
+		WHEN REGEXP_INSTR(SPRIDEN_LAST_NAME,'/',1,1) = 0
+			THEN SPRIDEN_LAST_NAME
+		ELSE SUBSTR(SPRIDEN_LAST_NAME,1,REGEXP_INSTR(SPRIDEN_LAST_NAME,'/',1,1)-1) END AS VARCHAR(100)) AS PRIMER_APELLIDO
+	, CAST(CASE
+		WHEN REGEXP_INSTR(SPRIDEN_LAST_NAME,'/',1,1) = 0
+			THEN NULL
+		ELSE SUBSTR(SPRIDEN_LAST_NAME,REGEXP_INSTR(SPRIDEN_LAST_NAME,'/',1,1)+1) END AS VARCHAR(100)) AS SEGUNDO_APELLIDO
+	, CASE WHEN REGEXP_INSTR(SPRIDEN_LAST_NAME,'/',1,1) = 0 THEN 1 ELSE 0 END AS SOLO_UN_APELLIDO
+	, CASE SPBPERS_SEX WHEN 'M' THEN 1 WHEN 'F' THEN 2 END AS SEXO
+	, SPBPERS_BIRTH_DATE AS FECHA_NACIMIENTO
+	, CAST(CASE WHEN L.DNI IS NOT NULL AND LENGTH(L.DNI) &lt; 9 THEN '9233' END AS VARCHAR(20)) AS PAIS_NACIMIENTO
+	, CAST(CASE WHEN L.DNI IS NOT NULL AND LENGTH(L.DNI) &lt; 9 THEN '85' END AS VARCHAR(20)) AS NACIONALIDAD
+	, CAST(CASE WHEN L.DNI IS NOT NULL AND LENGTH(L.DNI) &lt; 9 THEN '140101' END AS VARCHAR(20)) AS UBIGEO_NACIMIENTO
+	, NULL AS UBIGEO_DOMICILIO, NULL AS LENGUA_NATIVA, NULL AS IDIOMA_EXTRANJERO, NULL AS CONDICION_DISCAPACIDAD
+	, CASE (CASE WHEN A.PROGRAM = 'MOINTL' THEN M.MAESTRIA ELSE A.PROGRAM END)
+		WHEN 'ADM-EA' THEN 3
+		WHEN 'ADM-FS' THEN 3
+		WHEN 'ADM-UG' THEN 3
+		WHEN 'ADM-WA' THEN 3
+		WHEN 'ABF-UG' THEN 3
+		WHEN 'ABF-WA' THEN 3
+		WHEN 'AGC-UG' THEN 3
+		WHEN 'AGC-WA' THEN 3
+		WHEN 'AGT-WA' THEN 3
+		WHEN 'AGT-UG' THEN 3
+		WHEN 'GPU-WA' THEN 3
+		WHEN 'GPU-UG' THEN 3
+		WHEN 'AMK-UG' THEN 3
+		WHEN 'AMK-WA' THEN 3
+		WHEN 'AST-UG' THEN 3
+		WHEN 'AST-WA' THEN 3
+		WHEN 'ADI-UG' THEN 15
+		WHEN 'ADI-WA' THEN 15
+		WHEN 'AUR-UG' THEN 15
+		WHEN 'AUR-WA' THEN 15
+		WHEN 'COM-UG' THEN 9
+		WHEN 'COM-WA' THEN 9
+		WHEN 'CAM-UG' THEN 9
+		WHEN 'CAM-WA' THEN 9
+		WHEN 'CCR-UG' THEN 9
+		WHEN 'CCR-WA' THEN 9
+		WHEN 'CDG-UG' THEN 9
+		WHEN 'CDG-WA' THEN 9
+		WHEN 'CPE-UG' THEN 9
+		WHEN 'CPE-WA' THEN 9
+		WHEN 'CPU-UG' THEN 9
+		WHEN 'CPU-WA' THEN 9
+		WHEN 'CON-UG' THEN 3
+		WHEN 'CON-WA' THEN 3
+		WHEN 'DEH-WA' THEN 8
+		WHEN 'DEH-UG' THEN 8
+		WHEN 'DIN-UG' THEN 15
+		WHEN 'DIN-WA' THEN 15
+		WHEN 'ECO-UG' THEN 3
+		WHEN 'ECO-WA' THEN 3
+		WHEN 'ENI-UG' THEN 3
+		WHEN 'ENI-WA' THEN 3
+		WHEN 'EDG-UG' THEN 9
+		WHEN 'EDG-WA' THEN 9
+		WHEN 'ENF-UG' THEN 11
+		WHEN 'ENF-WA' THEN 11
+		WHEN 'GGR-UG' THEN 3
+		WHEN 'GGR-WA' THEN 3
+		WHEN 'AGR-UG' THEN 5
+		WHEN 'AGR-WA' THEN 5
+		WHEN 'AMB-UG' THEN 5
+		WHEN 'AMB-WA' THEN 5
+		WHEN 'MIN-UG' THEN 5
+		WHEN 'MIN-WA' THEN 5
+		WHEN 'SIC-WA' THEN 5
+		WHEN 'SIC-UG' THEN 5
+		WHEN 'ELE-UG' THEN 5
+		WHEN 'ELE-WA' THEN 5
+		WHEN 'EMP-UG' THEN 5
+		WHEN 'EMP-WA' THEN 5
+		WHEN 'GEO-UG' THEN 5
+		WHEN 'GEO-WA' THEN 5
+		WHEN 'IND-FS' THEN 5
+		WHEN 'IND-EA' THEN 5
+		WHEN 'IND-UG' THEN 5
+		WHEN 'IND-WA' THEN 5
+		WHEN 'ILT-UG' THEN 5
+		WHEN 'ILT-WA' THEN 5
+		WHEN 'MCT-UG' THEN 5
+		WHEN 'MCT-WA' THEN 5
+		WHEN 'MEAEPM' THEN 18
+		WHEN 'DEREPM' THEN 18
+		WHEN 'DCGEPM' THEN 18
+		WHEN 'DOCAPM' THEN 18
+		WHEN 'DGIEPM' THEN 18
+		WHEN 'DGTHPM' THEN 18
+		WHEN 'FICOPM' THEN 18
+		WHEN 'GMGCPM' THEN 18
+		WHEN 'GARCPM' THEN 18
+		WHEN 'GEPUPM' THEN 18
+		WHEN 'INSIPM' THEN 18
+		WHEN 'MKNIPM' THEN 18
+		WHEN 'MIAEMI' THEN 18
+		WHEN 'LMBAPM' THEN 18
+		WHEN 'NUT-WA' THEN 11
+		WHEN 'NUT-UG' THEN 11
+		WHEN 'OBS-UG' THEN 11
+		WHEN 'OBS-WA' THEN 11
+		WHEN 'PSI-UG' THEN 11
+		WHEN 'PSI-WA' THEN 11
+		WHEN 'TFI-UG' THEN 11
+		WHEN 'TFI-WA' THEN 11
+		ELSE 1 END AS CODIGO_FACULTAD_UNIDAD
+	, CASE (CASE WHEN A.PROGRAM = 'MOINTL' THEN M.MAESTRIA ELSE A.PROGRAM END)
+		WHEN 'ADM-EA' THEN 1
+		WHEN 'ADM-FS' THEN 1
+		WHEN 'ADM-UG' THEN 1
+		WHEN 'ADM-WA' THEN 1
+		WHEN 'ABF-UG' THEN 20
+		WHEN 'ABF-WA' THEN 20
+		WHEN 'AGC-UG' THEN 2
+		WHEN 'AGC-WA' THEN 2
+		WHEN 'AGT-WA' THEN 21
+		WHEN 'AGT-UG' THEN 21
+		WHEN 'GPU-WA' THEN 22
+		WHEN 'GPU-UG' THEN 22
+		WHEN 'AMK-UG' THEN 3
+		WHEN 'AMK-WA' THEN 3
+		WHEN 'ANI-UG' THEN 4
+		WHEN 'ANI-WA' THEN 4
+		WHEN 'AST-UG' THEN 5
+		WHEN 'AST-WA' THEN 5
+		WHEN 'ARQ-UG' THEN 58
+		WHEN 'ARQ-WA' THEN 58
+		WHEN 'ADI-UG' THEN 6
+		WHEN 'ADI-WA' THEN 6
+		WHEN 'AGP-UG' THEN 59
+		WHEN 'AGP-WA' THEN 59
+		WHEN 'AUR-UG' THEN 7
+		WHEN 'AUR-WA' THEN 7
+		WHEN 'CCO-UG' THEN 60
+		WHEN 'CCO-WA' THEN 60
+		WHEN 'COM-UG' THEN 23
+		WHEN 'COM-WA' THEN 23
+		WHEN 'CAM-UG' THEN 8
+		WHEN 'CAM-WA' THEN 8
+		WHEN 'CCR-UG' THEN 24
+		WHEN 'CCR-WA' THEN 24
+		WHEN 'CDG-UG' THEN 25
+		WHEN 'CDG-WA' THEN 25
+		WHEN 'CPE-UG' THEN 9
+		WHEN 'CPE-WA' THEN 9
+		WHEN 'CPU-UG' THEN 10
+		WHEN 'CPU-WA' THEN 10
+		WHEN 'CON-UG' THEN 11
+		WHEN 'CON-WA' THEN 11
+		WHEN 'DEH-WA' THEN 12
+		WHEN 'DEH-UG' THEN 12
+		WHEN 'DER-WA' THEN 62
+		WHEN 'DER-UG' THEN 62
+		WHEN 'DIN-UG' THEN 26
+		WHEN 'DIN-WA' THEN 26
+		WHEN 'DEREPD' THEN 28
+		WHEN 'ECO-UG' THEN 29
+		WHEN 'ECO-WA' THEN 29
+		WHEN 'ENI-UG' THEN 30
+		WHEN 'ENI-WA' THEN 30
+		WHEN 'EDG-UG' THEN 31
+		WHEN 'EDG-WA' THEN 31
+		WHEN 'ENF-UG' THEN 32
+		WHEN 'ENF-WA' THEN 32
+		WHEN 'GGR-UG' THEN 33
+		WHEN 'GGR-WA' THEN 33
+		WHEN 'AGR-UG' THEN 34
+		WHEN 'AGR-WA' THEN 34
+		WHEN 'AMB-UG' THEN 13
+		WHEN 'AMB-WA' THEN 13
+		WHEN 'CIV-UG' THEN 14
+		WHEN 'CIV-WA' THEN 14
+		WHEN 'MIN-UG' THEN 35
+		WHEN 'MIN-WA' THEN 35
+		WHEN 'SIS-EA' THEN 63
+		WHEN 'SIS-FS' THEN 63
+		WHEN 'SIS-UG' THEN 63
+		WHEN 'SIS-WA' THEN 63
+		WHEN 'SIC-WA' THEN 15
+		WHEN 'SIC-UG' THEN 15
+		WHEN 'ELE-UG' THEN 36
+		WHEN 'ELE-WA' THEN 36
+		WHEN 'EMP-UG' THEN 16
+		WHEN 'EMP-WA' THEN 16
+		WHEN 'GEO-UG' THEN 38
+		WHEN 'GEO-WA' THEN 38
+		WHEN 'IND-FS' THEN 17
+		WHEN 'IND-EA' THEN 17
+		WHEN 'IND-UG' THEN 17
+		WHEN 'IND-WA' THEN 17
+		WHEN 'ILT-UG' THEN 37
+		WHEN 'ILT-WA' THEN 37
+		WHEN 'MCT-UG' THEN 39
+		WHEN 'MCT-WA' THEN 39
+		WHEN 'MEAEPM' THEN 40
+		WHEN 'DEREPM' THEN 43
+		WHEN 'DCGEPM' THEN 43
+		WHEN 'DOCAPM' THEN 44
+		WHEN 'DGIEPM' THEN 45
+		WHEN 'DGTHPM' THEN 46
+		WHEN 'FICOPM' THEN 49
+		WHEN 'GMGCPM' THEN 50
+		WHEN 'GARCPM' THEN 51
+		WHEN 'GEPUPM' THEN 53
+		WHEN 'INSIPM' THEN 54
+		WHEN 'MKNIPM' THEN 55
+		WHEN 'MIAEMI' THEN 42
+		WHEN 'LMBAPM' THEN 41
+		WHEN 'NUT-WA' THEN 18
+		WHEN 'NUT-UG' THEN 18
+		WHEN 'OBS-UG' THEN 56
+		WHEN 'OBS-WA' THEN 56
+		WHEN 'PSI-UG' THEN 19
+		WHEN 'PSI-WA' THEN 19
+		WHEN 'TFI-UG' THEN 57
+		WHEN 'TFI-WA' THEN 57
+		WHEN 'MKT-UG' THEN 64
+		WHEN 'MKT-WA' THEN 64
+		ELSE 999999 END AS CODIGO_PROGRAMA
+	, K.APPLICATION_DATE AS FECHA_INGRESO
+	, CASE A.ADMISSIONS_POPULATION
+		WHEN 'WE' THEN 3
+		WHEN 'WA' THEN 8
+		WHEN 'DI' THEN 3
+		WHEN 'W1' THEN 8
+		WHEN 'IC' THEN 8
+		WHEN 'WC' THEN 8
+		WHEN 'IP' THEN 8
+		WHEN 'ID' THEN 8
+		WHEN 'IM' THEN 8
+		WHEN 'II' THEN 3
+		--WHEN 'MR' THEN 8
+		WHEN 'PE' THEN 4
+		WHEN 'WB' THEN 8
+		WHEN 'IR' THEN 8
+		WHEN 'RE' THEN 8
+		WHEN 'TE' THEN 3
+		WHEN 'UA' THEN 8
+		WHEN 'MU' THEN 8	--No utilizar
+		WHEN 'DM' THEN 8	--No utilizar
+		WHEN 'MN' THEN 8	--No utilizar
+		WHEN 'RM' THEN 8	--No utilizar
+		WHEN 'PM' THEN 8	--No utilizar
+		ELSE 10 END AS MODALIDAD_INGRESO
+	, CAST(CASE WHEN A.ADMISSIONS_POPULATION NOT IN ('WE','WA','DI','W1','IC','WC','IP','ID','IM','II'/*,'MR'*/,'PE','WB','IR','RE','TE','UA','MU','DM','MN','RM','PM')
+		THEN A.ADMISSIONS_POPULATION_DESC END AS VARCHAR(100)) AS OTRA_MODALIDAD_INGRESO
+	, CASE WHEN A.PROGRAM IN ('GPU-UG','GPU-WA') THEN 2 ELSE 1 END AS MODALIDAD_ESTUDIO
+	, NULL AS CODIGO_ORCID
+FROM ODSMGR.ACADEMIC_STUDY A
+		INNER JOIN ODSMGR.STUDENT_COURSE B ON A.PERSON_UID = B.PERSON_UID AND A.ACADEMIC_PERIOD = B.ACADEMIC_PERIOD
+												AND B.TRANSFER_COURSE_IND = 'N' AND B.REGISTRATION_STATUS IN ('RE','RW','RA','WC','RF','RO','SC')
+		INNER JOIN ODSMGR.LOE_SPRIDEN ON A.PERSON_UID = SPRIDEN_PIDM AND SPRIDEN_CHANGE_IND IS NULL
+		LEFT JOIN ODSMGR.SPBPERS ON SPRIDEN_PIDM = SPBPERS_PIDM
+		LEFT JOIN ODSMGR.STUDENT_COHORT C ON A.PERSON_UID = C.PERSON_UID AND A.ACADEMIC_PERIOD = C.ACADEMIC_PERIOD AND C.COHORT IN ('REINGRESO','NEW_REING')
+		LEFT JOIN ODSMGR.STUDENT_ATTRIBUTE D ON A.PERSON_UID = D.PERSON_UID AND A.ACADEMIC_PERIOD = D.ACADEMIC_PERIOD AND D.STUDENT_ATTRIBUTE = 'TINT'
+		LEFT JOIN ODSMGR.STUDENT_ACTIVITY E ON A.PERSON_UID = E.PERSON_UID AND A.ACADEMIC_PERIOD = E.ACADEMIC_PERIOD AND E.ACTIVITY IN ('DTO','ITO')
+		LEFT JOIN ( SELECT DISTINCT PERSON_UID, ID, NAME, CURRICULUM_CHANGE_REASON FROM ODSMGR.FIELD_OF_STUDY
+					WHERE SOURCE = 'OUTCOME' AND CURRICULUM_CHANGE_REASON = 'EGRESADO' AND STUDENT_LEVEL = 'UG'
+					) F ON A.PERSON_UID = F.PERSON_UID
+		LEFT JOIN ODSMGR.STVTERM G ON A.ACADEMIC_PERIOD = G.STVTERM_CODE
+		LEFT JOIN ODSMGR.LOE_SOVLCUR H ON A.PERSON_UID = H.SOVLCUR_PIDM AND A.STUDENT_LEVEL = H.SOVLCUR_LEVL_CODE
+											AND H.SOVLCUR_TERM_CODE_ADMIT = (SELECT MIN(H1.SOVLCUR_TERM_CODE_ADMIT) FROM ODSMGR.LOE_SOVLCUR H1
+																			WHERE H1.SOVLCUR_PIDM = H.SOVLCUR_PIDM AND H1.SOVLCUR_LEVL_CODE = H.SOVLCUR_LEVL_CODE AND H1.SOVLCUR_TERM_CODE_ADMIT IS NOT NULL
+																				AND (SUBSTR(H1.SOVLCUR_TERM_CODE_ADMIT,4,1) &lt;&gt; '3' OR H1.SOVLCUR_TERM_CODE_ADMIT &lt; '217400')
+																				AND H1.SOVLCUR_LMOD_CODE = 'LEARNER' AND H1.SOVLCUR_CACT_CODE = 'ACTIVE')
+		LEFT JOIN ODSMGR.LOE_SOVLCUR I ON A.PERSON_UID = I.SOVLCUR_PIDM AND A.STUDENT_LEVEL = I.SOVLCUR_LEVL_CODE AND A.PROGRAM = I.SOVLCUR_PROGRAM
+											AND I.SOVLCUR_TERM_CODE_ADMIT = (SELECT MIN(I1.SOVLCUR_TERM_CODE_ADMIT) FROM ODSMGR.LOE_SOVLCUR I1
+																			WHERE I1.SOVLCUR_PIDM = I.SOVLCUR_PIDM AND I1.SOVLCUR_LEVL_CODE = I.SOVLCUR_LEVL_CODE
+																				AND I1.SOVLCUR_PROGRAM = I.SOVLCUR_PROGRAM AND I1.SOVLCUR_TERM_CODE_ADMIT IS NOT NULL
+																				AND (SUBSTR(I1.SOVLCUR_TERM_CODE_ADMIT,4,1) &lt;&gt; '3' OR I1.SOVLCUR_TERM_CODE_ADMIT &lt; '217400')
+																				AND I1.SOVLCUR_LMOD_CODE = 'LEARNER' AND I1.SOVLCUR_CACT_CODE = 'ACTIVE')
+		LEFT JOIN ODSMGR.STVTERM J ON CASE
+										WHEN A.STUDENT_LEVEL = 'UG' AND C.COHORT IN ('REINGRESO','NEW_REING') AND F.PERSON_UID IS NULL THEN H.SOVLCUR_TERM_CODE_ADMIT
+										WHEN A.STUDENT_LEVEL = 'UG' AND C.COHORT IN ('REINGRESO','NEW_REING') AND F.PERSON_UID IS NOT NULL THEN I.SOVLCUR_TERM_CODE_ADMIT
+										WHEN A.STUDENT_POPULATION = 'N' OR A.ADMISSIONS_POPULATION = 'II' OR D.STUDENT_ATTRIBUTE = 'TINT' THEN A.ACADEMIC_PERIOD_ADMITTED
+										WHEN A.STUDENT_LEVEL = 'UG' AND A.STUDENT_POPULATION = 'C' AND F.PERSON_UID IS NULL THEN H.SOVLCUR_TERM_CODE_ADMIT
+										WHEN A.STUDENT_LEVEL = 'UG' AND A.STUDENT_POPULATION = 'C' AND F.PERSON_UID IS NOT NULL THEN I.SOVLCUR_TERM_CODE_ADMIT
+										ELSE A.ACADEMIC_PERIOD_ADMITTED END = J.STVTERM_CODE
+		LEFT JOIN ODSMGR.ADMISSIONS_APPLICATION K ON H.SOVLCUR_PIDM = K.PERSON_UID AND H.SOVLCUR_LEVL_CODE = K.STUDENT_LEVEL
+													AND CASE
+														WHEN A.STUDENT_LEVEL = 'UG' AND C.COHORT IN ('REINGRESO','NEW_REING') AND F.PERSON_UID IS NULL THEN H.SOVLCUR_TERM_CODE_ADMIT
+														WHEN A.STUDENT_LEVEL = 'UG' AND C.COHORT IN ('REINGRESO','NEW_REING') AND F.PERSON_UID IS NOT NULL THEN I.SOVLCUR_TERM_CODE_ADMIT
+														WHEN A.STUDENT_POPULATION = 'N' OR A.ADMISSIONS_POPULATION = 'II' OR D.STUDENT_ATTRIBUTE = 'TINT' THEN A.ACADEMIC_PERIOD_ADMITTED
+														WHEN A.STUDENT_LEVEL = 'UG' AND A.STUDENT_POPULATION = 'C' AND F.PERSON_UID IS NULL THEN H.SOVLCUR_TERM_CODE_ADMIT
+														WHEN A.STUDENT_LEVEL = 'UG' AND A.STUDENT_POPULATION = 'C' AND F.PERSON_UID IS NOT NULL THEN I.SOVLCUR_TERM_CODE_ADMIT
+														ELSE A.ACADEMIC_PERIOD_ADMITTED END = K.ACADEMIC_PERIOD
+													AND K.APPLICATION_NUMBER = (SELECT MIN(J1.APPLICATION_NUMBER) FROM ODSMGR.ADMISSIONS_APPLICATION J1
+																				WHERE J1.PERSON_UID = K.PERSON_UID AND J1.STUDENT_LEVEL = K.STUDENT_LEVEL
+																					AND J1.ACADEMIC_PERIOD = K.ACADEMIC_PERIOD)
+		LEFT JOIN DOCUMENTO_IDENTIDAD L ON SPRIDEN_PIDM = L.ENTITY_UID
+		LEFT JOIN MAESTRIA_MOINTL M ON A.PERSON_UID = M.SOVLCUR_PIDM AND A.STUDENT_LEVEL = M.SOVLCUR_LEVL_CODE
+WHERE A.ENROLLMENT_STATUS IN ('EL','RF','RO','SE')
+	AND ((A.STUDENT_LEVEL ='UG' AND A.ACADEMIC_PERIOD IN ('220413','220513'))
+		OR (A.STUDENT_LEVEL = 'EC' AND A.ACADEMIC_PERIOD = '220953' AND A.PROGRAM = 'MOINTL')
+		OR (A.STUDENT_LEVEL = 'MA' AND A.ACADEMIC_PERIOD IN ('219813','219839','220813') AND (A.ACADEMIC_PERIOD = A.ACADEMIC_PERIOD_ADMITTED OR A.ACADEMIC_PERIOD_ADMITTED IS NULL)))
+;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas recuperadas por lote."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determina la asignación del tamaño de los fragmentos de las columnas LOB"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina la manera en la que el componente expone las columnas CHAR. Si es False, las columnas CHAR se exponen como cadenas byte o multibyte (DT_STR); si es True, las columnas CHAR se exponen como cadenas de tipo ancho (DT_WSTR)."
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos que se debe esperar para que una instrucción SQL se ejecute antes de volver a la aplicación."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Página de códigos que se usará cuando la información de la página de códigos no esté disponible en el origen de datos."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Método usado para recuperar datos."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Tipo de datos ODBC C para el enlace de datos numéricos."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determina la manera en la que el componente enlazará columnas de tipos de cadena byte o multibyte (es decir, SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). Las opciones son Unicode (SQL_C_WCHAR) y ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Modo usado para obtener acceso a la base de datos."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Origen ODBC.Connections[ODBCConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Snowflake PROD.U310600100]"
+                  connectionManagerRefId="Package.ConnectionManagers[Snowflake PROD.U310600100]"
+                  description="Conexión de runtime de ODBC usada para acceder a la base de datos."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC]"
+                  errorRowDisposition="FailComponent"
+                  name="Salida de origen de ODBC"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PERSON_UID]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PERSON_UID]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PERSON_UID]"
+                      name="PERSON_UID" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[ID]"
+                      length="252"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[STUDENT_LEVEL]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[STUDENT_LEVEL]"
+                      length="252"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[STUDENT_LEVEL]"
+                      name="STUDENT_LEVEL" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PROGRAMA]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PROGRAMA]"
+                      length="303"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PROGRAMA]"
+                      name="PROGRAMA" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[DOCUMENTO_IDENTIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[DOCUMENTO_IDENTIDAD]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[DOCUMENTO_IDENTIDAD]"
+                      name="DOCUMENTO_IDENTIDAD" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_ESTUDIANTE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_ESTUDIANTE]"
+                      length="252"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_ESTUDIANTE]"
+                      name="TIPO_ESTUDIANTE" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_INGRESANTE]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_INGRESANTE]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_INGRESANTE]"
+                      name="TIPO_INGRESANTE"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CODIGO_SEDE_FILIAL]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CODIGO_SEDE_FILIAL]"
+                      length="20"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CODIGO_SEDE_FILIAL]"
+                      name="CODIGO_SEDE_FILIAL" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_PROCESO]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_PROCESO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_PROCESO]"
+                      name="TIPO_PROCESO"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PROCESO_ADMISION_PERIODO_INGRESO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PROCESO_ADMISION_PERIODO_INGRESO]"
+                      length="120"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PROCESO_ADMISION_PERIODO_INGRESO]"
+                      name="PROCESO_ADMISION_PERIODO_INGRESO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_DOCUMENTO]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_DOCUMENTO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_DOCUMENTO]"
+                      name="TIPO_DOCUMENTO"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[NRO_DOCUMENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[NRO_DOCUMENTO]"
+                      length="20"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[NRO_DOCUMENTO]"
+                      name="NRO_DOCUMENTO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[NOMBRES]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[NOMBRES]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[NOMBRES]"
+                      name="NOMBRES" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PRIMER_APELLIDO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PRIMER_APELLIDO]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PRIMER_APELLIDO]"
+                      name="PRIMER_APELLIDO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SEGUNDO_APELLIDO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SEGUNDO_APELLIDO]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SEGUNDO_APELLIDO]"
+                      name="SEGUNDO_APELLIDO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SOLO_UN_APELLIDO]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SOLO_UN_APELLIDO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SOLO_UN_APELLIDO]"
+                      name="SOLO_UN_APELLIDO"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SEXO]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SEXO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SEXO]"
+                      name="SEXO"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FECHA_NACIMIENTO]"
+                      dataType="dbDate"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FECHA_NACIMIENTO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FECHA_NACIMIENTO]"
+                      name="FECHA_NACIMIENTO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PAIS_NACIMIENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PAIS_NACIMIENTO]"
+                      length="20"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PAIS_NACIMIENTO]"
+                      name="PAIS_NACIMIENTO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[NACIONALIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[NACIONALIDAD]"
+                      length="20"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[NACIONALIDAD]"
+                      name="NACIONALIDAD" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[UBIGEO_NACIMIENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[UBIGEO_NACIMIENTO]"
+                      length="20"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[UBIGEO_NACIMIENTO]"
+                      name="UBIGEO_NACIMIENTO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[UBIGEO_DOMICILIO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[UBIGEO_DOMICILIO]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[UBIGEO_DOMICILIO]"
+                      name="UBIGEO_DOMICILIO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[LENGUA_NATIVA]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[LENGUA_NATIVA]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[LENGUA_NATIVA]"
+                      name="LENGUA_NATIVA" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[IDIOMA_EXTRANJERO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[IDIOMA_EXTRANJERO]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[IDIOMA_EXTRANJERO]"
+                      name="IDIOMA_EXTRANJERO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CONDICION_DISCAPACIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CONDICION_DISCAPACIDAD]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CONDICION_DISCAPACIDAD]"
+                      name="CONDICION_DISCAPACIDAD" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CODIGO_FACULTAD_UNIDAD]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CODIGO_FACULTAD_UNIDAD]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CODIGO_FACULTAD_UNIDAD]"
+                      name="CODIGO_FACULTAD_UNIDAD"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CODIGO_PROGRAMA]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CODIGO_PROGRAMA]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CODIGO_PROGRAMA]"
+                      name="CODIGO_PROGRAMA"
+                      precision="6" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FECHA_INGRESO]"
+                      dataType="dbTimeStamp2"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FECHA_INGRESO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FECHA_INGRESO]"
+                      name="FECHA_INGRESO"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MODALIDAD_INGRESO]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MODALIDAD_INGRESO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MODALIDAD_INGRESO]"
+                      name="MODALIDAD_INGRESO"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[OTRA_MODALIDAD_INGRESO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[OTRA_MODALIDAD_INGRESO]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[OTRA_MODALIDAD_INGRESO]"
+                      name="OTRA_MODALIDAD_INGRESO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MODALIDAD_ESTUDIO]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MODALIDAD_ESTUDIO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MODALIDAD_ESTUDIO]"
+                      name="MODALIDAD_ESTUDIO"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CODIGO_ORCID]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CODIGO_ORCID]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[CODIGO_ORCID]"
+                      name="CODIGO_ORCID" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PERSON_UID]"
+                      dataType="r8"
+                      name="PERSON_UID" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="252"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[STUDENT_LEVEL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="252"
+                      name="STUDENT_LEVEL" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PROGRAMA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="303"
+                      name="PROGRAMA" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[DOCUMENTO_IDENTIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DOCUMENTO_IDENTIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_ESTUDIANTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="252"
+                      name="TIPO_ESTUDIANTE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_INGRESANTE]"
+                      dataType="numeric"
+                      name="TIPO_INGRESANTE"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CODIGO_SEDE_FILIAL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="CODIGO_SEDE_FILIAL" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_PROCESO]"
+                      dataType="numeric"
+                      name="TIPO_PROCESO"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PROCESO_ADMISION_PERIODO_INGRESO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="PROCESO_ADMISION_PERIODO_INGRESO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_DOCUMENTO]"
+                      dataType="numeric"
+                      name="TIPO_DOCUMENTO"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[NRO_DOCUMENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="NRO_DOCUMENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[NOMBRES]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="NOMBRES" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PRIMER_APELLIDO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="PRIMER_APELLIDO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SEGUNDO_APELLIDO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SEGUNDO_APELLIDO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SOLO_UN_APELLIDO]"
+                      dataType="numeric"
+                      name="SOLO_UN_APELLIDO"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SEXO]"
+                      dataType="numeric"
+                      name="SEXO"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FECHA_NACIMIENTO]"
+                      dataType="dbDate"
+                      name="FECHA_NACIMIENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PAIS_NACIMIENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="PAIS_NACIMIENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[NACIONALIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="NACIONALIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[UBIGEO_NACIMIENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="UBIGEO_NACIMIENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[UBIGEO_DOMICILIO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="UBIGEO_DOMICILIO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[LENGUA_NATIVA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="LENGUA_NATIVA" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[IDIOMA_EXTRANJERO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="IDIOMA_EXTRANJERO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CONDICION_DISCAPACIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CONDICION_DISCAPACIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CODIGO_FACULTAD_UNIDAD]"
+                      dataType="numeric"
+                      name="CODIGO_FACULTAD_UNIDAD"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CODIGO_PROGRAMA]"
+                      dataType="numeric"
+                      name="CODIGO_PROGRAMA"
+                      precision="6" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FECHA_INGRESO]"
+                      dataType="dbTimeStamp2"
+                      name="FECHA_INGRESO"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MODALIDAD_INGRESO]"
+                      dataType="numeric"
+                      name="MODALIDAD_INGRESO"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[OTRA_MODALIDAD_INGRESO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="OTRA_MODALIDAD_INGRESO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MODALIDAD_ESTUDIO]"
+                      dataType="numeric"
+                      name="MODALIDAD_ESTUDIO"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CODIGO_ORCID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CODIGO_ORCID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ODBC">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[PERSON_UID]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PERSON_UID]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[PERSON_UID]"
+                      name="PERSON_UID" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[ID]"
+                      length="252"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[STUDENT_LEVEL]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[STUDENT_LEVEL]"
+                      length="252"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[STUDENT_LEVEL]"
+                      name="STUDENT_LEVEL" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[PROGRAMA]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PROGRAMA]"
+                      length="303"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[PROGRAMA]"
+                      name="PROGRAMA" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[DOCUMENTO_IDENTIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[DOCUMENTO_IDENTIDAD]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[DOCUMENTO_IDENTIDAD]"
+                      name="DOCUMENTO_IDENTIDAD" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[TIPO_ESTUDIANTE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_ESTUDIANTE]"
+                      length="252"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[TIPO_ESTUDIANTE]"
+                      name="TIPO_ESTUDIANTE" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[TIPO_INGRESANTE]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_INGRESANTE]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[TIPO_INGRESANTE]"
+                      name="TIPO_INGRESANTE"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[CODIGO_SEDE_FILIAL]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CODIGO_SEDE_FILIAL]"
+                      length="20"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[CODIGO_SEDE_FILIAL]"
+                      name="CODIGO_SEDE_FILIAL" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[TIPO_PROCESO]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_PROCESO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[TIPO_PROCESO]"
+                      name="TIPO_PROCESO"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[PROCESO_ADMISION_PERIODO_INGRESO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PROCESO_ADMISION_PERIODO_INGRESO]"
+                      length="120"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[PROCESO_ADMISION_PERIODO_INGRESO]"
+                      name="PROCESO_ADMISION_PERIODO_INGRESO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[TIPO_DOCUMENTO]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_DOCUMENTO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[TIPO_DOCUMENTO]"
+                      name="TIPO_DOCUMENTO"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[NRO_DOCUMENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[NRO_DOCUMENTO]"
+                      length="20"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[NRO_DOCUMENTO]"
+                      name="NRO_DOCUMENTO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[NOMBRES]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[NOMBRES]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[NOMBRES]"
+                      name="NOMBRES" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[PRIMER_APELLIDO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PRIMER_APELLIDO]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[PRIMER_APELLIDO]"
+                      name="PRIMER_APELLIDO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[SEGUNDO_APELLIDO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SEGUNDO_APELLIDO]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[SEGUNDO_APELLIDO]"
+                      name="SEGUNDO_APELLIDO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[SOLO_UN_APELLIDO]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SOLO_UN_APELLIDO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[SOLO_UN_APELLIDO]"
+                      name="SOLO_UN_APELLIDO"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[SEXO]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SEXO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[SEXO]"
+                      name="SEXO"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[FECHA_NACIMIENTO]"
+                      dataType="dbDate"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FECHA_NACIMIENTO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[FECHA_NACIMIENTO]"
+                      name="FECHA_NACIMIENTO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[PAIS_NACIMIENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PAIS_NACIMIENTO]"
+                      length="20"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[PAIS_NACIMIENTO]"
+                      name="PAIS_NACIMIENTO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[NACIONALIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[NACIONALIDAD]"
+                      length="20"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[NACIONALIDAD]"
+                      name="NACIONALIDAD" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[UBIGEO_NACIMIENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[UBIGEO_NACIMIENTO]"
+                      length="20"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[UBIGEO_NACIMIENTO]"
+                      name="UBIGEO_NACIMIENTO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[UBIGEO_DOMICILIO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[UBIGEO_DOMICILIO]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[UBIGEO_DOMICILIO]"
+                      name="UBIGEO_DOMICILIO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[LENGUA_NATIVA]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[LENGUA_NATIVA]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[LENGUA_NATIVA]"
+                      name="LENGUA_NATIVA" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[IDIOMA_EXTRANJERO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[IDIOMA_EXTRANJERO]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[IDIOMA_EXTRANJERO]"
+                      name="IDIOMA_EXTRANJERO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[CONDICION_DISCAPACIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CONDICION_DISCAPACIDAD]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[CONDICION_DISCAPACIDAD]"
+                      name="CONDICION_DISCAPACIDAD" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[CODIGO_FACULTAD_UNIDAD]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CODIGO_FACULTAD_UNIDAD]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[CODIGO_FACULTAD_UNIDAD]"
+                      name="CODIGO_FACULTAD_UNIDAD"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[CODIGO_PROGRAMA]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CODIGO_PROGRAMA]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[CODIGO_PROGRAMA]"
+                      name="CODIGO_PROGRAMA"
+                      precision="6" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[FECHA_INGRESO]"
+                      dataType="dbTimeStamp2"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FECHA_INGRESO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[FECHA_INGRESO]"
+                      name="FECHA_INGRESO"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[MODALIDAD_INGRESO]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MODALIDAD_INGRESO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[MODALIDAD_INGRESO]"
+                      name="MODALIDAD_INGRESO"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[OTRA_MODALIDAD_INGRESO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[OTRA_MODALIDAD_INGRESO]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[OTRA_MODALIDAD_INGRESO]"
+                      name="OTRA_MODALIDAD_INGRESO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[MODALIDAD_ESTUDIO]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MODALIDAD_ESTUDIO]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[MODALIDAD_ESTUDIO]"
+                      name="MODALIDAD_ESTUDIO"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[CODIGO_ORCID]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[CODIGO_ORCID]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[CODIGO_ORCID]"
+                      name="CODIGO_ORCID" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de ODBC]"
+              endId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de ODBC"
+              startId="Package\Tarea Flujo de datos\Origen ODBC.Outputs[Salida de origen de ODBC]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="98,61" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Tarea Flujo de datos\Origen ODBC"
+          TopLeft="58,46" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Tarea Flujo de datos\Destino de OLE DB"
+          TopLeft="52,178" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de ODBC]"
+          TopLeft="134.5,88">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,90"
+              Start="0,0"
+              End="0,82.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Origen ODBC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
