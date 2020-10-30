@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Reportes_SUNEDU", "Reportes_SUNEDU\Reportes_SUNEDU.dtproj", "{D1FF5894-48B5-4F43-80A4-E20D6055623D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1FF5894-48B5-4F43-80A4-E20D6055623D}.Development|Default.ActiveCfg = Development
+		{D1FF5894-48B5-4F43-80A4-E20D6055623D}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4823078-F1FA-4F8E-824D-AED9C04D98A1}
+	EndGlobalSection
+EndGlobal
