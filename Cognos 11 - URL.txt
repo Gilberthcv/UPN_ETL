@@ -1,0 +1,8 @@
+
+http: // server-name: portnumber / bi / v1 / disp
+
+Cognos 11 DEV
+http://sis-r0-olcognos10.sis.laureate.va:9500/bi/v1/disp
+
+Cognos 11 PROD
+http://sis-r1-olcognos20.sis.laureate.or:9300/bi/v1/disp
