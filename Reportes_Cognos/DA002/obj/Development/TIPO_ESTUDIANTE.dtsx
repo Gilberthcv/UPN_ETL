@@ -1,0 +1,740 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/18/2020 11:13:46 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GEG"
+  DTS:CreatorName="UPNORTE\geg"
+  DTS:DTSID="{599F9E22-06E6-4C6D-BF55-83416326DBCF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{BDAC91DF-B2A2-4311-9042-1CF023BB6A6D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PETCABIDW01.ODS_UPN]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0EEA2543-3190-42CE-A700-EEDE9C18EA1E}"
+      DTS:ObjectName="PETCABIDW01.ODS_UPN">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PETCABIDW01;Initial Catalog=ODS_UPN;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package1-{0EEA2543-3190-42CE-A700-EEDE9C18EA1E}PETCABIDW01.ODS_UPN;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Snowflake PROD.U310600100]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{6769A45B-E1C7-413B-9D60-55A4E0B4626A}"
+      DTS:ObjectName="Snowflake PROD.U310600100">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=ETL_DESA;Dsn=Snowflake PROD;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAP4TlTxWjxkqYUBBkCK14xwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADpLTSLXUfiH08fk/xlsi9JAAAAAASAAACgAAAAEAAAACq8pe4e6uJz20yGei44gTcYAAAA/G4OPqftw62/fI5tZ8yXcxesBIIL/3CnFAAAADUPdqjfuwgpUFf4qeSRPYvrNlWO</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LOE_TIPO_ESTUDIANTE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{FD02A29F-5470-4716-AC22-7C6639EDC150}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LOE_TIPO_ESTUDIANTE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[LOE_TIPO_ESTUDIANTE]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PETCABIDW01.ODS_UPN]"
+                  connectionManagerRefId="Package.ConnectionManagers[PETCABIDW01.ODS_UPN]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[SHRTCKN_PIDM]"
+                      cachedDataType="r8"
+                      cachedName="SHRTCKN_PIDM"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SHRTCKN_PIDM]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SHRTCKN_PIDM]" />
+                    <inputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[SPRIDEN_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="SPRIDEN_ID"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SPRIDEN_ID]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SPRIDEN_ID]" />
+                    <inputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[PERIODO_ACTUAL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="PERIODO_ACTUAL"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PERIODO_ACTUAL]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PERIODO_ACTUAL]" />
+                    <inputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[MAX_PERIODO_HISTORIA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="MAX_PERIODO_HISTORIA"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[MAX_PERIODO_HISTORIA]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MAX_PERIODO_HISTORIA]" />
+                    <inputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FECHA_INICIO]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="FECHA_INICIO"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FECHA_INICIO]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FECHA_INICIO]" />
+                    <inputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FECHA_FIN]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="FECHA_FIN"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FECHA_FIN]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FECHA_FIN]" />
+                    <inputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[MAX_PERIODO_EGRESO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="MAX_PERIODO_EGRESO"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[MAX_PERIODO_EGRESO]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MAX_PERIODO_EGRESO]" />
+                    <inputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FLAG_INTERCAMBIO_OUT]"
+                      cachedDataType="numeric"
+                      cachedName="FLAG_INTERCAMBIO_OUT"
+                      cachedPrecision="1"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FLAG_INTERCAMBIO_OUT]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FLAG_INTERCAMBIO_OUT]" />
+                    <inputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TIPO_ESTUDIANTE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="TIPO_ESTUDIANTE"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_ESTUDIANTE]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_ESTUDIANTE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SHRTCKN_PIDM]"
+                      dataType="r8"
+                      name="SHRTCKN_PIDM" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SPRIDEN_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="SPRIDEN_ID" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PERIODO_ACTUAL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="PERIODO_ACTUAL" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[MAX_PERIODO_HISTORIA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="MAX_PERIODO_HISTORIA" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FECHA_INICIO]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_INICIO" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FECHA_FIN]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_FIN" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[MAX_PERIODO_EGRESO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="MAX_PERIODO_EGRESO" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FLAG_INTERCAMBIO_OUT]"
+                      dataType="i4"
+                      name="FLAG_INTERCAMBIO_OUT" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_ESTUDIANTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="TIPO_ESTUDIANTE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC"
+              componentClassID="Microsoft.SSISODBCSrc"
+              contactInfo="Origen ODBC;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen ODBC"
+              name="Origen ODBC"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla que debe recuperarse."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">WITH PERIODO_ACADEMICO AS (
+SELECT P.PERIODO_ACTUAL, P.PERIODO_ACTUAL_LBL, P.PERIODO_ACTUAL_DESC, P.PC_FECHA_INICIO, P.PC_FECHA_FIN, P.PERIODO_ANTERIOR
+    , D.STVTERM_DESC AS PERIODO_ANTERIOR_DESC, F.START_DATE AS PP_FECHA_INICIO, F.END_DATE AS PP_FECHA_FIN
+FROM (SELECT PC.TERM_CODE AS PERIODO_ACTUAL, SUBSTR(STVTERM_DESC,1,6) AS PERIODO_ACTUAL_LBL, STVTERM_DESC AS PERIODO_ACTUAL_DESC
+		  , PC.START_DATE AS PC_FECHA_INICIO, PC.END_DATE AS PC_FECHA_FIN, PC.CENSUS_2_DATE, MAX(PP.TERM_CODE) AS PERIODO_ANTERIOR
+      FROM ODSMGR.LOE_SECTION_PART_OF_TERM PC, ODSMGR.STVTERM, ODSMGR.LOE_SECTION_PART_OF_TERM PP
+      WHERE PC.TERM_CODE = STVTERM_CODE
+          AND PC.START_DATE &gt; PP.START_DATE + INTERVAL '1 MONTH' AND SUBSTR(PP.TERM_CODE,4,1) = SUBSTR(PC.TERM_CODE,4,1)
+          AND PP.TERM_CODE &gt; 217430 AND PP.WEEKS &gt; 15 AND PP.WEEKS &lt; 18
+          AND SUBSTR(PC.TERM_CODE,4,1) IN ('4','5') AND PC.TERM_CODE &gt; 217430
+          AND ((PC.WEEKS &gt; 6 AND PC.WEEKS &lt; 10) OR (PC.WEEKS &gt; 15 AND PC.WEEKS &lt; 18))
+      GROUP BY PC.TERM_CODE, STVTERM_DESC, PC.START_DATE, PC.END_DATE, PC.CENSUS_2_DATE) P
+    , ODSMGR.STVTERM D, ODSMGR.LOE_SECTION_PART_OF_TERM F
+WHERE P.PERIODO_ANTERIOR = D.STVTERM_CODE AND P.PERIODO_ANTERIOR = F.TERM_CODE
+    AND CURRENT_DATE BETWEEN (F.CENSUS_2_DATE + INTERVAL '10 DAYS') AND (P.CENSUS_2_DATE + INTERVAL '10 DAYS')
+--ORDER BY P.PERIODO_ACTUAL_LBL DESC, P.PC_FECHA_INICIO DESC
+)
+SELECT HST.SHRTCKN_PIDM, CAST(HST.SPRIDEN_ID AS VARCHAR(16)) AS SPRIDEN_ID, CAST(TRM_CURR.PERIODO_ACTUAL AS VARCHAR(16)) AS PERIODO_ACTUAL, CAST(HST.MAX_PERIODO_HISTORIA AS VARCHAR(16)) AS MAX_PERIODO_HISTORIA
+	, NVL(TERM1.START_DATE,TERM2.STVTERM_START_DATE) AS FECHA_INICIO, NVL(TERM1.END_DATE,TERM2.STVTERM_END_DATE) AS FECHA_FIN, CAST(EGR.MAX_PERIODO_EGRESO AS VARCHAR(16)) AS MAX_PERIODO_EGRESO
+    , CASE WHEN INT_OUT.TIPO_ESTUDIANTE = 'INTERCAMBIO OUT' THEN 1 ELSE 0 END AS FLAG_INTERCAMBIO_OUT
+    , CASE 
+        WHEN INT_OUT.TIPO_ESTUDIANTE = 'INTERCAMBIO OUT' THEN 'Regular'
+        WHEN HST.MAX_PERIODO_HISTORIA = EGR.MAX_PERIODO_EGRESO THEN 'Nuevo'
+        WHEN EGR.MAX_PERIODO_EGRESO &gt; HST.MAX_PERIODO_HISTORIA THEN 'Nuevo'
+        WHEN DATEDIFF(month,NVL(TERM1.START_DATE,TERM2.STVTERM_START_DATE),TRM_CURR.PC_FECHA_INICIO) &lt;= 7 THEN 'Regular'
+        WHEN DATEDIFF(month,NVL(TERM1.START_DATE,TERM2.STVTERM_START_DATE),TRM_CURR.PC_FECHA_INICIO) &gt;= 8
+                AND DATEDIFF(month,NVL(TERM1.START_DATE,TERM2.STVTERM_START_DATE),TRM_CURR.PC_FECHA_INICIO) &lt;= 24 THEN 'Reingreso'
+        ELSE 'Nuevo Reingreso' END AS TIPO_ESTUDIANTE
+FROM (((SELECT SHRTCKN_PIDM, SPRIDEN_ID, MAX(MAX_PERIODO_HISTORIA) AS MAX_PERIODO_HISTORIA, PERIODO_ACTUAL_LBL
+       FROM (SELECT SHRTCKN_PIDM, SPRIDEN_ID, MAX(SHRTCKN_TERM_CODE) AS MAX_PERIODO_HISTORIA, PERIODO_ACTUAL_LBL
+            FROM ODSMGR.SHRTCKN, ODSMGR.SHRTCKL, ODSMGR.SHRTCKG G, ODSMGR.LOE_SPRIDEN, PERIODO_ACADEMICO
+            WHERE SHRTCKN_PIDM = SHRTCKL_PIDM AND SHRTCKN_TERM_CODE = SHRTCKL_TERM_CODE AND SHRTCKN_SEQ_NO = SHRTCKL_TCKN_SEQ_NO
+                AND SHRTCKN_PIDM = SHRTCKG_PIDM AND SHRTCKN_TERM_CODE = SHRTCKG_TERM_CODE AND SHRTCKN_SEQ_NO = SHRTCKG_TCKN_SEQ_NO
+                AND G.SHRTCKG_SEQ_NO = (SELECT MAX(G1.SHRTCKG_SEQ_NO) FROM ODSMGR.SHRTCKG G1
+                                        WHERE G.SHRTCKG_PIDM = G1.SHRTCKG_PIDM AND G.SHRTCKG_TERM_CODE = G1.SHRTCKG_TERM_CODE
+                                            AND G.SHRTCKG_TCKN_SEQ_NO = G1.SHRTCKG_TCKN_SEQ_NO)
+                AND SHRTCKN_PIDM = SPRIDEN_PIDM AND SPRIDEN_CHANGE_IND IS NULL
+                AND SHRTCKN_TERM_CODE &lt; PERIODO_ANTERIOR
+                AND SHRTCKL_LEVL_CODE = 'UG' AND SUBSTR(SHRTCKG_GRDE_CODE_FINAL,1,1) &lt;&gt; 'C'
+                AND SUBSTR(SHRTCKN_TERM_CODE,5,2) NOT IN ('00','09','01','02','03') AND SHRTCKN_TERM_CODE NOT IN ('201730','201830') AND SUBSTR(SHRTCKN_TERM_CODE,6,1) NOT IN ('1')
+                AND ((SUBSTR(SHRTCKN_TERM_CODE,4,1) NOT IN ('3','7','9') AND SUBSTR(SHRTCKN_TERM_CODE,2,1) NOT IN ('0')) OR SUBSTR(SHRTCKN_TERM_CODE,2,1) IN ('0'))
+            GROUP BY SHRTCKN_PIDM, SPRIDEN_ID, PERIODO_ACTUAL_LBL
+            UNION
+            SELECT DISTINCT PERSON_UID, ID, ACADEMIC_PERIOD, PERIODO_ACTUAL_LBL
+            FROM ODSMGR.STUDENT_COURSE, PERIODO_ACADEMICO
+            WHERE ACADEMIC_PERIOD = PERIODO_ANTERIOR AND REGISTRATION_STATUS IN ('RW','RE','RA','WC','RF','RO','IA','SE'))      --PERIODOS_ANTERIORES
+        GROUP BY SHRTCKN_PIDM, SPRIDEN_ID, PERIODO_ACTUAL_LBL) HST        
+        LEFT JOIN (SELECT PERSON_UID, ID, MAX_PERIODO_EGRESO, PERIODO_ACTUAL_LBL
+                    FROM (SELECT PERSON_UID, ID, MAX(ACADEMIC_PERIOD) AS MAX_PERIODO_EGRESO
+                            FROM ODSMGR.FIELD_OF_STUDY
+                            WHERE SOURCE = 'OUTCOME' AND CURRICULUM_CHANGE_REASON IN ('EGRESADO'/*,'BACHILLER','TITULADO'*/) AND STUDENT_LEVEL = 'UG'   --EVALUAR
+                            GROUP BY PERSON_UID, ID), PERIODO_ACADEMICO
+                    WHERE MAX_PERIODO_EGRESO &lt;= PERIODO_ANTERIOR) EGR ON
+                HST.SHRTCKN_PIDM = EGR.PERSON_UID AND HST.PERIODO_ACTUAL_LBL = EGR.PERIODO_ACTUAL_LBL)        
+        LEFT JOIN ODSMGR.LOE_SECTION_PART_OF_TERM TERM1 ON HST.MAX_PERIODO_HISTORIA = TERM1.TERM_CODE        
+        LEFT JOIN ODSMGR.STVTERM TERM2 ON HST.MAX_PERIODO_HISTORIA = TERM2.STVTERM_CODE)        
+        INNER JOIN PERIODO_ACADEMICO TRM_CURR ON HST.PERIODO_ACTUAL_LBL = TRM_CURR.PERIODO_ACTUAL_LBL		--PERIODOS_ACTUALES
+        LEFT JOIN (SELECT A.PERSON_UID, A.ID, A.ACADEMIC_PERIOD, 'INTERCAMBIO OUT' AS TIPO_ESTUDIANTE, PERIODO_ACTUAL_LBL
+                    FROM (ODSMGR.ACADEMIC_STUDY A 
+                            LEFT JOIN ODSMGR.STUDENT_ATTRIBUTE C ON 
+                                A.PERSON_UID = C.PERSON_UID AND A.ACADEMIC_PERIOD = C.ACADEMIC_PERIOD
+                                AND C.STUDENT_ATTRIBUTE = 'TINT' 
+                            LEFT JOIN ODSMGR.STUDENT_ACTIVITY D ON 
+                                A.PERSON_UID = D.PERSON_UID AND A.ACADEMIC_PERIOD = D.ACADEMIC_PERIOD
+                                AND D.ACTIVITY = 'ITO'), PERIODO_ACADEMICO
+                    WHERE A.ACADEMIC_PERIOD = PERIODO_ANTERIOR AND A.STUDENT_POPULATION = 'C'       --PERIODOS_ANTERIORES
+                        AND ((A.ADMISSIONS_POPULATION &lt;&gt; 'RE' AND C.STUDENT_ATTRIBUTE = 'TINT')
+                                OR D.ACTIVITY = 'ITO')) INT_OUT ON
+                HST.SHRTCKN_PIDM = INT_OUT.PERSON_UID AND HST.PERIODO_ACTUAL_LBL = INT_OUT.PERIODO_ACTUAL_LBL                
+GROUP BY HST.SHRTCKN_PIDM, HST.SPRIDEN_ID, TRM_CURR.PERIODO_ACTUAL, HST.MAX_PERIODO_HISTORIA, NVL(TERM1.START_DATE,TERM2.STVTERM_START_DATE)
+    , NVL(TERM1.END_DATE,TERM2.STVTERM_END_DATE), EGR.MAX_PERIODO_EGRESO
+    , CASE WHEN INT_OUT.TIPO_ESTUDIANTE = 'INTERCAMBIO OUT' THEN 1 ELSE 0 END
+    , CASE 
+        WHEN INT_OUT.TIPO_ESTUDIANTE = 'INTERCAMBIO OUT' THEN 'Regular'
+        WHEN HST.MAX_PERIODO_HISTORIA = EGR.MAX_PERIODO_EGRESO THEN 'Nuevo'
+        WHEN EGR.MAX_PERIODO_EGRESO &gt; HST.MAX_PERIODO_HISTORIA THEN 'Nuevo'
+        WHEN DATEDIFF(month,NVL(TERM1.START_DATE,TERM2.STVTERM_START_DATE),TRM_CURR.PC_FECHA_INICIO) &lt;= 7 THEN 'Regular'
+        WHEN DATEDIFF(month,NVL(TERM1.START_DATE,TERM2.STVTERM_START_DATE),TRM_CURR.PC_FECHA_INICIO) &gt;= 8
+                AND DATEDIFF(month,NVL(TERM1.START_DATE,TERM2.STVTERM_START_DATE),TRM_CURR.PC_FECHA_INICIO) &lt;= 24 THEN 'Reingreso'
+        ELSE 'Nuevo Reingreso' END
+;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas recuperadas por lote."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determina la asignación del tamaño de los fragmentos de las columnas LOB"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina la manera en la que el componente expone las columnas CHAR. Si es False, las columnas CHAR se exponen como cadenas byte o multibyte (DT_STR); si es True, las columnas CHAR se exponen como cadenas de tipo ancho (DT_WSTR)."
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos que se debe esperar para que una instrucción SQL se ejecute antes de volver a la aplicación."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Página de códigos que se usará cuando la información de la página de códigos no esté disponible en el origen de datos."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Método usado para recuperar datos."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Tipo de datos ODBC C para el enlace de datos numéricos."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determina la manera en la que el componente enlazará columnas de tipos de cadena byte o multibyte (es decir, SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). Las opciones son Unicode (SQL_C_WCHAR) y ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Modo usado para obtener acceso a la base de datos."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Connections[ODBCConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Snowflake PROD.U310600100]"
+                  connectionManagerRefId="Package.ConnectionManagers[Snowflake PROD.U310600100]"
+                  description="Conexión de runtime de ODBC usada para acceder a la base de datos."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC]"
+                  errorRowDisposition="FailComponent"
+                  name="Salida de origen de ODBC"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SHRTCKN_PIDM]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SHRTCKN_PIDM]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SHRTCKN_PIDM]"
+                      name="SHRTCKN_PIDM" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SPRIDEN_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SPRIDEN_ID]"
+                      length="16"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[SPRIDEN_ID]"
+                      name="SPRIDEN_ID" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PERIODO_ACTUAL]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PERIODO_ACTUAL]"
+                      length="16"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[PERIODO_ACTUAL]"
+                      name="PERIODO_ACTUAL" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MAX_PERIODO_HISTORIA]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MAX_PERIODO_HISTORIA]"
+                      length="16"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MAX_PERIODO_HISTORIA]"
+                      name="MAX_PERIODO_HISTORIA" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FECHA_INICIO]"
+                      dataType="dbTimeStamp2"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FECHA_INICIO]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FECHA_INICIO]"
+                      name="FECHA_INICIO"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FECHA_FIN]"
+                      dataType="dbTimeStamp2"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FECHA_FIN]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FECHA_FIN]"
+                      name="FECHA_FIN"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MAX_PERIODO_EGRESO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MAX_PERIODO_EGRESO]"
+                      length="16"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MAX_PERIODO_EGRESO]"
+                      name="MAX_PERIODO_EGRESO" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FLAG_INTERCAMBIO_OUT]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FLAG_INTERCAMBIO_OUT]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[FLAG_INTERCAMBIO_OUT]"
+                      name="FLAG_INTERCAMBIO_OUT"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_ESTUDIANTE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_ESTUDIANTE]"
+                      length="15"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[TIPO_ESTUDIANTE]"
+                      name="TIPO_ESTUDIANTE" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SHRTCKN_PIDM]"
+                      dataType="r8"
+                      name="SHRTCKN_PIDM" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SPRIDEN_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="SPRIDEN_ID" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PERIODO_ACTUAL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="PERIODO_ACTUAL" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MAX_PERIODO_HISTORIA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="MAX_PERIODO_HISTORIA" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FECHA_INICIO]"
+                      dataType="dbTimeStamp2"
+                      name="FECHA_INICIO"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FECHA_FIN]"
+                      dataType="dbTimeStamp2"
+                      name="FECHA_FIN"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MAX_PERIODO_EGRESO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="MAX_PERIODO_EGRESO" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FLAG_INTERCAMBIO_OUT]"
+                      dataType="numeric"
+                      name="FLAG_INTERCAMBIO_OUT"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_ESTUDIANTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="TIPO_ESTUDIANTE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ODBC">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[SHRTCKN_PIDM]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SHRTCKN_PIDM]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[SHRTCKN_PIDM]"
+                      name="SHRTCKN_PIDM" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[SPRIDEN_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[SPRIDEN_ID]"
+                      length="16"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[SPRIDEN_ID]"
+                      name="SPRIDEN_ID" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[PERIODO_ACTUAL]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[PERIODO_ACTUAL]"
+                      length="16"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[PERIODO_ACTUAL]"
+                      name="PERIODO_ACTUAL" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[MAX_PERIODO_HISTORIA]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MAX_PERIODO_HISTORIA]"
+                      length="16"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[MAX_PERIODO_HISTORIA]"
+                      name="MAX_PERIODO_HISTORIA" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[FECHA_INICIO]"
+                      dataType="dbTimeStamp2"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FECHA_INICIO]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[FECHA_INICIO]"
+                      name="FECHA_INICIO"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[FECHA_FIN]"
+                      dataType="dbTimeStamp2"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FECHA_FIN]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[FECHA_FIN]"
+                      name="FECHA_FIN"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[MAX_PERIODO_EGRESO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MAX_PERIODO_EGRESO]"
+                      length="16"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[MAX_PERIODO_EGRESO]"
+                      name="MAX_PERIODO_EGRESO" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[FLAG_INTERCAMBIO_OUT]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[FLAG_INTERCAMBIO_OUT]"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[FLAG_INTERCAMBIO_OUT]"
+                      name="FLAG_INTERCAMBIO_OUT"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[TIPO_ESTUDIANTE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[TIPO_ESTUDIANTE]"
+                      length="15"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[TIPO_ESTUDIANTE]"
+                      name="TIPO_ESTUDIANTE" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\LOE_TIPO_ESTUDIANTE.Paths[Salida de origen de ODBC]"
+              endId="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de ODBC"
+              startId="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC.Outputs[Salida de origen de ODBC]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="195,42"
+          Id="Package\LOE_TIPO_ESTUDIANTE"
+          TopLeft="77,64" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\LOE_TIPO_ESTUDIANTE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="141,42"
+          Id="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC"
+          TopLeft="85,35" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB"
+          TopLeft="72,128" />
+        <EdgeLayout
+          Id="Package\LOE_TIPO_ESTUDIANTE.Paths[Salida de origen de ODBC]"
+          TopLeft="155.75,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOE_TIPO_ESTUDIANTE\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOE_TIPO_ESTUDIANTE\Origen ODBC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
