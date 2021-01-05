@@ -2,23 +2,23 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Reportes_Cognos</Name>
-    <LastWriteTime>2020-09-22T17:26:53.5883064Z</LastWriteTime>
+    <LastWriteTime>2020-12-09T14:50:49.3983018Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>DA002.dtsx</Name>
-      <LastWriteTime>2020-09-18T16:36:08.952769Z</LastWriteTime>
+      <LastWriteTime>2020-11-23T21:30:48.3507916Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Fact_Cobr.dtsx</Name>
-      <LastWriteTime>2020-09-21T14:12:41.8382921Z</LastWriteTime>
+      <LastWriteTime>2020-12-09T14:50:34.1972766Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>TIPO_ESTUDIANTE.dtsx</Name>
-      <LastWriteTime>2020-09-22T17:26:45.6691463Z</LastWriteTime>
+      <LastWriteTime>2020-11-23T21:30:48.4056449Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
