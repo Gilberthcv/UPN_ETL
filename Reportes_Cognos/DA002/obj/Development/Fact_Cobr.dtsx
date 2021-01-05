@@ -7,12 +7,12 @@
   DTS:CreatorName="UPNORTE\geg"
   DTS:DTSID="{3420B817-801B-46D4-A501-3C9A896E6469}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{4B2340C3-24A7-495D-BE66-FC87DA87F813}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{6D7EE538-82EF-4F72-B4A2-B2B9EE814701}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,8 @@
       DTS:ObjectName="Cobranza">
       <DTS:ObjectData>
         <ConnectionManager
-          ConnectionString="Path=C:\Users\geg\Desktop\Entregables\Cobranza.xlsx;ExcelVersion=Default;OutputBadDateAsNull=False;RetainSameConnection=False" />
+          ConnectionString="Path=C:\Users\geg\Documents\Compartir\Entregables\Cobranza.xlsx;ExcelVersion=Default;OutputBadDateAsNull=False;RetainSameConnection=False"
+          ConnectByProxy="False" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,21 +34,22 @@
       DTS:ObjectName="Facturacion">
       <DTS:ObjectData>
         <ConnectionManager
-          ConnectionString="Path=C:\Users\geg\Desktop\Entregables\Facturacion.xlsx;ExcelVersion=Default;OutputBadDateAsNull=False;RetainSameConnection=False" />
+          ConnectionString="Path=C:\Users\geg\Documents\Compartir\Entregables\Facturacion.xlsx;ExcelVersion=Default;OutputBadDateAsNull=False;RetainSameConnection=False"
+          ConnectByProxy="False" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Snowflake PROD.U310600100]"
+      DTS:refId="Package.ConnectionManagers[Snowflake PROD.ETL_DESA]"
       DTS:CreationName="ODBC"
       DTS:DTSID="{7C409722-6A7F-412D-B8A9-1738ED63F463}"
-      DTS:ObjectName="Snowflake PROD.U310600100">
+      DTS:ObjectName="Snowflake PROD.ETL_DESA">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="uid=PR_UPN_SERVICE_ACCOUNT_PROD;Dsn=Snowflake PROD;">
+          DTS:ConnectionString="uid=ETL_DESA;Dsn=Snowflake PROD;">
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAP4TlTxWjxkqYUBBkCK14xwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABalPlbFSBwdOhHn65Rc2d5AAAAAASAAACgAAAAEAAAAIlXkYfJPIbNiOmJkNcMjjMgAAAA1XzE7fqyaJ5MUV9Trt3NZBVYlLNhANuORGGOJjah5zQUAAAAwQ5n8sRSQLovRqmIpco73SrCap4</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPVHFKqIwTk6ScS3DNktLmAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADfDudSJPLEKCgCWkOO1FrqAAAAAASAAACgAAAAEAAAAASDendCDvIxGhjAXsh/vHMYAAAAmwmBDlWpxwjqLNxoNlHh+L9rbW4CCmuHFAAAAOji32tXXPMt1ZkN+8g5usvet/dR</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -699,8 +701,8 @@ WHERE A.BUSINESS_UNIT = 'PER03' AND (A.CUST_ID &lt;&gt; '9999999999' OR A.CUST_I
               <connections>
                 <connection
                   refId="Package\Cobranza\Origen ODBC.Connections[ODBCConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Snowflake PROD.U310600100]"
-                  connectionManagerRefId="Package.ConnectionManagers[Snowflake PROD.U310600100]"
+                  connectionManagerID="Package.ConnectionManagers[Snowflake PROD.ETL_DESA]"
+                  connectionManagerRefId="Package.ConnectionManagers[Snowflake PROD.ETL_DESA]"
                   description="Conexión de runtime de ODBC usada para acceder a la base de datos."
                   name="ODBCConnection" />
               </connections>
@@ -1966,8 +1968,10 @@ WHERE A.BUSINESS_UNIT = 'PER03' AND (A.CUST_ID &lt;&gt; '9999999999' OR A.CUST_I
                       lineageId="Package\Facturacion\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MONTO_INAFECTO]" />
                     <inputColumn
                       refId="Package\Facturacion\Excel Destination.Inputs[ExcelDestinationInput].Columns[MONTO_IMPUESTO]"
-                      cachedDataType="r8"
+                      cachedDataType="numeric"
                       cachedName="MONTO_IMPUESTO"
+                      cachedPrecision="27"
+                      cachedScale="3"
                       lineageId="Package\Facturacion\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MONTO_IMPUESTO]" />
                     <inputColumn
                       refId="Package\Facturacion\Excel Destination.Inputs[ExcelDestinationInput].Columns[MONTO_TOTAL]"
@@ -2299,8 +2303,8 @@ WHERE (E.JOURNAL_ID IS NOT NULL OR H.JOURNAL_ID IS NOT NULL)
               <connections>
                 <connection
                   refId="Package\Facturacion\Origen ODBC.Connections[ODBCConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Snowflake PROD.U310600100]"
-                  connectionManagerRefId="Package.ConnectionManagers[Snowflake PROD.U310600100]"
+                  connectionManagerID="Package.ConnectionManagers[Snowflake PROD.ETL_DESA]"
+                  connectionManagerRefId="Package.ConnectionManagers[Snowflake PROD.ETL_DESA]"
                   description="Conexión de runtime de ODBC usada para acceder a la base de datos."
                   name="ODBCConnection" />
               </connections>
@@ -2590,10 +2594,12 @@ WHERE (E.JOURNAL_ID IS NOT NULL OR H.JOURNAL_ID IS NOT NULL)
                       name="MONTO_INAFECTO" />
                     <outputColumn
                       refId="Package\Facturacion\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MONTO_IMPUESTO]"
-                      dataType="r8"
+                      dataType="numeric"
                       externalMetadataColumnId="Package\Facturacion\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MONTO_IMPUESTO]"
                       lineageId="Package\Facturacion\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MONTO_IMPUESTO]"
-                      name="MONTO_IMPUESTO" />
+                      name="MONTO_IMPUESTO"
+                      precision="27"
+                      scale="3" />
                     <outputColumn
                       refId="Package\Facturacion\Origen ODBC.Outputs[Salida de origen de ODBC].Columns[MONTO_TOTAL]"
                       dataType="r8"
@@ -2854,8 +2860,10 @@ WHERE (E.JOURNAL_ID IS NOT NULL OR H.JOURNAL_ID IS NOT NULL)
                       name="MONTO_INAFECTO" />
                     <externalMetadataColumn
                       refId="Package\Facturacion\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MONTO_IMPUESTO]"
-                      dataType="r8"
-                      name="MONTO_IMPUESTO" />
+                      dataType="numeric"
+                      name="MONTO_IMPUESTO"
+                      precision="27"
+                      scale="3" />
                     <externalMetadataColumn
                       refId="Package\Facturacion\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MONTO_TOTAL]"
                       dataType="r8"
@@ -3180,10 +3188,12 @@ WHERE (E.JOURNAL_ID IS NOT NULL OR H.JOURNAL_ID IS NOT NULL)
                       name="MONTO_INAFECTO" />
                     <outputColumn
                       refId="Package\Facturacion\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[MONTO_IMPUESTO]"
-                      dataType="r8"
+                      dataType="numeric"
                       externalMetadataColumnId="Package\Facturacion\Origen ODBC.Outputs[Salida de origen de ODBC].ExternalColumns[MONTO_IMPUESTO]"
                       lineageId="Package\Facturacion\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[MONTO_IMPUESTO]"
-                      name="MONTO_IMPUESTO" />
+                      name="MONTO_IMPUESTO"
+                      precision="27"
+                      scale="3" />
                     <outputColumn
                       refId="Package\Facturacion\Origen ODBC.Outputs[Salida de error de origen de ODBC].Columns[MONTO_TOTAL]"
                       dataType="r8"
