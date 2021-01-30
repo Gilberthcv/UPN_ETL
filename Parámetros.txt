@@ -1,0 +1,10 @@
+PARÁMETROS STAGE SNOWFLAKE 
+
+PROD 
+stage  = UPN_STAGE_SIS_BNRODS
+file_format = CSV_UPN_ODS
+
+DEV
+
+stage  = my_s3_stage
+file_format = my_csv_format
