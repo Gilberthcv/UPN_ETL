@@ -1,0 +1,4 @@
+--SCHEMA_BLACKBOARD_
+USE DATABASE UPN_RPT_DM_DEV;
+
+CREATE OR REPLACE SCHEMA BLACKBOARD COMMENT = 'Schema to hold the reporting views for UPN Blackboard.';
