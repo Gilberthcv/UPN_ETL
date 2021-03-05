@@ -1,0 +1,571 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/25/2021 8:10:20 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HO-GEG"
+  DTS:CreatorName="UPNORTE\geg"
+  DTS:DTSID="{0AC5F823-42AA-48AE-8159-EAAE95F08CE7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="10250"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{0360D6A6-022A-4CD4-9D05-C0C555A3BCEB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BdPeriodos]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{1A8E758B-21D6-426B-867F-A4D1A6443138}"
+      DTS:ObjectName="BdPeriodos">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="10250"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\geg\Desktop\BdPeriodos.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="24"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EXTERNAL_TERM_KEY"
+              DTS:DTSID="{2F1DCB2B-D470-40DB-A06C-A2D27C573DDA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="120"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NAME"
+              DTS:DTSID="{5CB0E834-7770-4DBA-9F45-B2335C7EBEFF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DURATION"
+              DTS:DTSID="{50D6AA2A-3F2F-47D1-A48E-3AC5B235DCCB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="START_DATE"
+              DTS:DTSID="{A1773A4A-A45F-49C5-8ADD-A5BA40D6ACFD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="END_DATE"
+              DTS:DTSID="{E9612AA4-D5B0-46CF-B68E-B7951D3B4166}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="19"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATA_SOURCE_KEY"
+              DTS:DTSID="{3FD1061D-CBCE-4718-B201-5CFEC88B0D98}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Snowflake DEV]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{9458B966-8872-4F7F-86DC-09BC91F9ADEA}"
+      DTS:ObjectName="Snowflake DEV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=ETL_DESA;Dsn=Snowflake DEV;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0ZqepRm/jEGOV6YuiNVoWgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAkRwzXe0XqvqccjqrCTdyPAAAAAASAAACgAAAAEAAAAOQ7TMOpyeEzZasWoiM2MYwYAAAAwOLOD3+oXHq/6aUZyOwcYmZ643/79CUrFAAAAAzJcE43LzBWcC0YFQeRaIKhrB+I</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{B0FDD4BC-A5CA-40CD-A719-605FD1427E04}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos\Destino de archivo plano"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Destino de archivo plano;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Destino de archivo plano"
+              localeId="10250"
+              name="Destino de archivo plano"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si los datos sobrescriben el archivo de destino o se anexan al mismo."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica el texto para escribir en el archivo de destino antes de escribir ningún dato."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="Cuando el calificador de texto está habilitado, especifica si este contendrá secuencias de escape o no en los datos escritos en el archivo de destino."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Destino de archivo plano.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BdPeriodos]"
+                  connectionManagerRefId="Package.ConnectionManagers[BdPeriodos]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano]"
+                  hasSideEffects="true"
+                  name="Entrada de destino de archivo plano">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].Columns[EXTERNAL_TERM_KEY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="EXTERNAL_TERM_KEY"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].ExternalColumns[EXTERNAL_TERM_KEY]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[EXTERNAL_TERM_KEY]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].Columns[NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="120"
+                      cachedName="NAME"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].ExternalColumns[NAME]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[NAME]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].Columns[DURATION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="DURATION"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].ExternalColumns[DURATION]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[DURATION]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].Columns[START_DATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="START_DATE"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].ExternalColumns[START_DATE]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[START_DATE]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].Columns[END_DATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="END_DATE"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].ExternalColumns[END_DATE]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[END_DATE]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].Columns[DATA_SOURCE_KEY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="19"
+                      cachedName="DATA_SOURCE_KEY"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].ExternalColumns[DATA_SOURCE_KEY]"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[DATA_SOURCE_KEY]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].ExternalColumns[EXTERNAL_TERM_KEY]"
+                      codePage="65001"
+                      dataType="str"
+                      length="24"
+                      name="EXTERNAL_TERM_KEY" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].ExternalColumns[NAME]"
+                      codePage="65001"
+                      dataType="str"
+                      length="120"
+                      name="NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].ExternalColumns[DURATION]"
+                      codePage="65001"
+                      dataType="str"
+                      length="1"
+                      name="DURATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].ExternalColumns[START_DATE]"
+                      codePage="65001"
+                      dataType="str"
+                      length="10"
+                      name="START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].ExternalColumns[END_DATE]"
+                      codePage="65001"
+                      dataType="str"
+                      length="10"
+                      name="END_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano].ExternalColumns[DATA_SOURCE_KEY]"
+                      codePage="65001"
+                      dataType="str"
+                      length="19"
+                      name="DATA_SOURCE_KEY" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Origen ODBC 1"
+              componentClassID="Microsoft.SSISODBCSrc"
+              contactInfo="Origen ODBC;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen ODBC"
+              name="Origen ODBC 1"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla que debe recuperarse."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM BLACKBOARD.BDPERIODOS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas recuperadas por lote."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determina la asignación del tamaño de los fragmentos de las columnas LOB"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina la manera en la que el componente expone las columnas CHAR. Si es False, las columnas CHAR se exponen como cadenas byte o multibyte (DT_STR); si es True, las columnas CHAR se exponen como cadenas de tipo ancho (DT_WSTR)."
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos que se debe esperar para que una instrucción SQL se ejecute antes de volver a la aplicación."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Página de códigos que se usará cuando la información de la página de códigos no esté disponible en el origen de datos."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Método usado para recuperar datos."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Tipo de datos ODBC C para el enlace de datos numéricos."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determina la manera en la que el componente enlazará columnas de tipos de cadena byte o multibyte (es decir, SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). Las opciones son Unicode (SQL_C_WCHAR) y ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Modo usado para obtener acceso a la base de datos."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Origen ODBC 1.Connections[ODBCConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Snowflake DEV]"
+                  connectionManagerRefId="Package.ConnectionManagers[Snowflake DEV]"
+                  description="Conexión de runtime de ODBC usada para acceder a la base de datos."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC]"
+                  errorRowDisposition="FailComponent"
+                  name="Salida de origen de ODBC"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[EXTERNAL_TERM_KEY]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[EXTERNAL_TERM_KEY]"
+                      length="24"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[EXTERNAL_TERM_KEY]"
+                      name="EXTERNAL_TERM_KEY" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[NAME]"
+                      length="120"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[NAME]"
+                      name="NAME" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[DURATION]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[DURATION]"
+                      length="1"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[DURATION]"
+                      name="DURATION" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[START_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[START_DATE]"
+                      length="10"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[START_DATE]"
+                      name="START_DATE" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[END_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[END_DATE]"
+                      length="10"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[END_DATE]"
+                      name="END_DATE" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[DATA_SOURCE_KEY]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[DATA_SOURCE_KEY]"
+                      length="19"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].Columns[DATA_SOURCE_KEY]"
+                      name="DATA_SOURCE_KEY" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[EXTERNAL_TERM_KEY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="EXTERNAL_TERM_KEY" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[DURATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="DURATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[START_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[END_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="END_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[DATA_SOURCE_KEY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="19"
+                      name="DATA_SOURCE_KEY" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ODBC">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[EXTERNAL_TERM_KEY]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[EXTERNAL_TERM_KEY]"
+                      length="24"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[EXTERNAL_TERM_KEY]"
+                      name="EXTERNAL_TERM_KEY" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[NAME]"
+                      length="120"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[NAME]"
+                      name="NAME" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[DURATION]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[DURATION]"
+                      length="1"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[DURATION]"
+                      name="DURATION" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[START_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[START_DATE]"
+                      length="10"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[START_DATE]"
+                      name="START_DATE" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[END_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[END_DATE]"
+                      length="10"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[END_DATE]"
+                      name="END_DATE" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[DATA_SOURCE_KEY]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC].ExternalColumns[DATA_SOURCE_KEY]"
+                      length="19"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[DATA_SOURCE_KEY]"
+                      name="DATA_SOURCE_KEY" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de error de origen de ODBC].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de ODBC]"
+              endId="Package\Tarea Flujo de datos\Destino de archivo plano.Inputs[Entrada de destino de archivo plano]"
+              name="Salida de origen de ODBC"
+              startId="Package\Tarea Flujo de datos\Origen ODBC 1.Outputs[Salida de origen de ODBC]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="133,78" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Tarea Flujo de datos\Origen ODBC 1"
+          TopLeft="93,61" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Tarea Flujo de datos\Destino de archivo plano"
+          TopLeft="74,181" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de ODBC]"
+          TopLeft="172.5,103">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78"
+              Start="0,0"
+              End="0,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Origen ODBC 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
